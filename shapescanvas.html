@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Shapes</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="600" height="600"></canvas>
+
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext('2d');
+
+        function drawSquare(x, y, size) {
+            context.beginPath();
+            context.rect(x, y, size, size);
+            context.fillStyle = 'lightgreen';
+            context.fill();
+            context.stroke();
+        }
+
+        function drawRectangle(x, y, width, height) {
+            context.beginPath();
+            context.rect(x, y, width, height);
+            context.fillStyle = 'lightblue';
+            context.fill();
+            context.stroke();
+        }
+
+        function drawStar(x, y, size) {
+            context.beginPath();
+            for (var i = 0; i < 5; i++) {
+                context.lineTo(x + size * Math.cos((18 + i * 72) / 180 * Math.PI), y + size * Math.sin((18 + i * 72) / 180 * Math.PI));
+                context.lineTo(x + size / 2 * Math.cos((54 + i * 72) / 180 * Math.PI), y + size / 2 * Math.sin((54 + i * 72) / 180 * Math.PI));
+            }
+            context.closePath();
+            context.fillStyle = 'yellow';
+            context.fill();
+            context.stroke();
+        }
+
+        function drawCircle(x, y, radius) {
+            context.beginPath();
+            context.arc(x, y, radius, 0, 2 * Math.PI);
+            context.fillStyle = 'orange';
+            context.fill();
+            context.stroke();
+        }
+
+        function drawHexagon(x, y, size) {
+            context.beginPath();
+            for (var i = 0; i < 6; i++) {
+                context.lineTo(x + size * Math.cos((60 * i) / 180 * Math.PI), y + size * Math.sin((60 * i) / 180 * Math.PI));
+            }
+            context.closePath();
+            context.fillStyle = 'lightcoral';
+            context.fill();
+            context.stroke();
+        }
+
+        function drawTriangle(x, y, size) {
+            context.beginPath();
+            context.moveTo(x, y);
+            context.lineTo(x, y + size);
+            context.lineTo(x + size, y + size);
+            context.closePath();
+            context.fillStyle = 'lightpink';
+            context.fill();
+            context.stroke();
+        }
+
+        function drawPentagon(x, y, size) {
+            context.beginPath();
+            for (var i = 0; i < 5; i++) {
+                context.lineTo(x + size * Math.cos((72 * i) / 180 * Math.PI), y + size * Math.sin((72 * i) / 180 * Math.PI));
+            }
+            context.closePath();
+            context.fillStyle = 'lightseagreen';
+            context.fill();
+            context.stroke();
+        }
+
+        function drawEllipse(x, y, radiusX, radiusY) {
+            context.beginPath();
+            context.ellipse(x, y, radiusX, radiusY, 0, 0, 2 * Math.PI);
+            context.fillStyle = 'lightsteelblue';
+            context.fill();
+            context.stroke();
+        }
+
+        function drawRhombus(x, y, size) {
+            context.beginPath();
+            context.moveTo(x, y);
+            context.lineTo(x + size / 2, y + size / 2);
+            context.lineTo(x, y + size);
+            context.lineTo(x - size / 2, y + size / 2);
+            context.closePath();
+            context.fillStyle = 'lightsalmon';
+            context.fill();
+            context.stroke();
+        }
+
+        function drawTrapezoid(x, y, topWidth, bottomWidth, height) {
+            context.beginPath();
+            context.moveTo(x - topWidth / 2, y);
+            context.lineTo(x + topWidth / 2, y);
+            context.lineTo(x + bottomWidth / 2, y + height);
+            context.lineTo(x - bottomWidth / 2, y + height);
+            context.closePath();
+            context.fillStyle = 'lightyellow';
+            context.fill();
+            context.stroke();
+        }
+
+        function drawRightTriangle(x, y, base, height) {
+            context.beginPath();
+            context.moveTo(x, y);
+            context.lineTo(x + base, y);
+            context.lineTo(x, y + height);
+            context.closePath();
+            context.fillStyle = 'lightcoral';
+            context.fill();
+            context.stroke();
+        }
+
+        function drawKite(x, y, width, height) {
+            context.beginPath();
+            context.moveTo(x, y);
+            context.lineTo(x + width / 2, y + height / 2);
+            context.lineTo(x, y + height);
+            context.lineTo(x - width / 2, y + height / 2);
+            context.closePath();
+            context.fillStyle = 'lightgray';
+            context.fill();
+            context.stroke();
+        }
+
+        drawSquare(50, 30, 100);
+        drawRectangle(190, 30, 150, 100);
+        drawStar(420, 80, 50);
+        drawCircle(530, 80, 40);
+
+        drawHexagon(90, 250, 80);
+        drawTriangle(190, 200, 100);
+        drawPentagon(390, 250, 70);
+        drawEllipse(530,  250, 60, 30);
+
+        drawRhombus(50, 370, 80);
+        drawTrapezoid(190, 370, 120, 180, 80);
+        drawRightTriangle(350, 370, 100, 80);
+        drawKite(500, 370, 80, 120); 
+    </script>
+</body>
+
+</html>
